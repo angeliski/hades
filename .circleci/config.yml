@@ -1,0 +1,15 @@
+version: 2
+jobs:
+   build:
+     docker:
+       - image: mysql:latest
+     steps:
+       - checkout
+       - setup_remote_docker
+       - run:
+          name: Start container and verify it's working
+          command: |
+            set -x
+            docker-compose up -d
+            docker run --network container:test-net \
+              appropriate/curl --retry 10 --retry-delay 1 --retry-connrefused http://localhost:3000/
