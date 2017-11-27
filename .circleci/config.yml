@@ -3,22 +3,25 @@ jobs:
    build:
      docker:
        - image: buildpack-deps:trusty
+       - image: node
+       - image: mysql:latest
+         environment:
+            MYSQL_ROOT_PASSWORD: hadespwd
+            MYSQL_DATABASE: hadesdb
+            MYSQL_USER: hades
+            MYSQL_PASSWORD: hades
      steps:
        - checkout
        - run:
-          name: List
+          name: Prepare Enviroment
           command: |
-            ls -la
-       - run:
-          name: Install Docker Compose
+            npm install -g nodemon
+            npm install
+      - run:
+          name: Wait DB
           command: |
-            set -x
-            curl -L https://github.com/docker/compose/releases/download/1.11.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
-            chmod +x /usr/local/bin/docker-compose
-       - setup_remote_docker
+            ./wait-for
        - run:
           name: Start container and verify it's working
           command: |
-            set -x
-            docker-compose up -d
-            
+            npm start
