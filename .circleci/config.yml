@@ -3,6 +3,8 @@ jobs:
    build:
      docker:
        - image: node
+         enviroment:
+          DATABASE_URL: mysql://hades:hades@mysql/hadesdb
        - image: mysql:latest
          environment:
           MYSQL_ROOT_PASSWORD: hadespwd
