@@ -14,8 +14,7 @@ jobs:
       - run:
         name: Prepare Enviroment
         command: |
-          npm install -g nodemon
-          npm install
+          npm install -g nodemon && npm install
       - run:
         name: Wait DB
         command: |
