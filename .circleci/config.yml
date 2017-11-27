@@ -21,8 +21,9 @@ jobs:
       - run:
           name: Wait DB
           command: |
-            ./wait-for
+            ./wait-for circle
       - run:
-          name: Start container and verify it's working
+          name: Test
           command: |
-            npm start
+              npm rum test
+              npm run test-acceptance
