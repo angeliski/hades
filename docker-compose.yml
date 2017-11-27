@@ -2,7 +2,7 @@ version: "2"
 services:
         web:
                 build: .
-                command: ./wait-for.sh
+                command: ls
                 volumes:
                         - .:/app/
                         - /app/node_modules
