@@ -2,14 +2,13 @@ version: 2
 jobs:
    build:
      docker:
-       - image: buildpack-deps:trusty
        - image: node
        - image: mysql:latest
-          environment:
-            MYSQL_ROOT_PASSWORD: hadespwd
-            MYSQL_DATABASE: hadesdb
-            MYSQL_USER: hades
-            MYSQL_PASSWORD: hades
+         environment:
+          MYSQL_ROOT_PASSWORD: hadespwd
+          MYSQL_DATABASE: hadesdb
+          MYSQL_USER: hades
+          MYSQL_PASSWORD: hades
      steps:
        - checkout
        - run:
