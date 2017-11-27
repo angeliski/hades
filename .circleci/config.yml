@@ -10,16 +10,17 @@ jobs:
           MYSQL_USER: hades
           MYSQL_PASSWORD: hades
      steps:
-       - checkout
-       - run:
-          name: Prepare Enviroment
-          command: |
-            npm install -g nodemon && npm install
+      - checkout
       - run:
-          name: Wait DB
-          command: |
-            ./wait-for
-       - run:
-          name: Start container and verify it's working
-          command: |
-            npm start
+        name: Prepare Enviroment
+        command: |
+          npm install -g nodemon
+          npm install
+      - run:
+        name: Wait DB
+        command: |
+          ./wait-for
+      - run:
+        name: Start container and verify it's working
+        command: |
+          npm start
