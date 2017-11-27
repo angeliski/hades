@@ -6,6 +6,10 @@ jobs:
      steps:
        - checkout
        - run:
+          name: List
+          command: |
+            ls -la
+       - run:
           name: Install Docker Compose
           command: |
             set -x
@@ -16,4 +20,5 @@ jobs:
           name: Start container and verify it's working
           command: |
             set -x
-            docker-compose up
+            docker-compose up -d
+            
