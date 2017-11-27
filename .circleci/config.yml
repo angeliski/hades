@@ -2,7 +2,7 @@ version: 2
 jobs:
    build:
      docker:
-       - image: buildpack-deps:trusty
+       - image: ubuntu:latest
      steps:
        - checkout
        - run:
