@@ -12,15 +12,15 @@ jobs:
      steps:
       - checkout
       - run:
-        name: Prepare Enviroment
-        command: |
-          npm install -g nodemon
-          npm install
+          name: Prepare Enviroment
+          command: |
+            npm install -g nodemon
+            npm install
       - run:
-        name: Wait DB
-        command: |
-          ./wait-for
+          name: Wait DB
+          command: |
+            ./wait-for
       - run:
-        name: Start container and verify it's working
-        command: |
-          npm start
+          name: Start container and verify it's working
+          command: |
+            npm start
