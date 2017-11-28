@@ -3,6 +3,12 @@ jobs:
    build:
      docker:
        - image: node
+         environment:
+          DATABASE_URL: mysql://hades:hades@mysql/hadesdb
+          DB_USERNAME: hades
+          DB_PASSWORD: hades
+          DB_NAME: hadesdb
+          DB_HOSTNAME: localhost
        - image: mysql:latest
          environment:
           MYSQL_ROOT_PASSWORD: hadespwd
@@ -20,12 +26,6 @@ jobs:
           name: Wait DB
           command: |
             ./wait-for circle
-          enviroment:
-            DATABASE_URL: mysql://hades:hades@mysql/hadesdb
-            DB_USERNAME: hades
-            DB_PASSWORD: hades
-            DB_NAME: hadesdb
-            DB_HOSTNAME: localhost
       - run:
           name: Test
           command: |
