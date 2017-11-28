@@ -4,7 +4,7 @@ jobs:
      docker:
        - image: node
          environment:
-          DATABASE_URL: mysql://hades:hades@mysql/hadesdb
+          DATABASE_URL: mysql://localhost:3306@mysql/hadesdb
           DB_USERNAME: hades
           DB_PASSWORD: hades
           DB_NAME: hadesdb
